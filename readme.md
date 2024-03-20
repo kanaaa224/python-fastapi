@@ -26,6 +26,21 @@ $ docker-compose up
 http://localhost:8000/docs
 ```
 
+データベースの起動確認
+```
+$ docker-compose exec database mysql main
+```
+
+mysqlクライアントのインストール
+```
+$ docker-compose exec python poetry add sqlalchemy aiomysql
+```
+
+DB テーブル 作成
+```
+$ docker-compose exec python poetry run python -m api.database_migrate
+```
+
 コンテナ削除
 ```
 $ docker-compose down --volumes --remove-orphans
